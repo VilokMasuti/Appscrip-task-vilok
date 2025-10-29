@@ -1,0 +1,147 @@
+/*
+  Filter Sidebar Styles
+
+  Features:
+  - Collapsible filter sections
+  - Checkbox filters
+  - Smooth animations
+  - Responsive design
+*/
+
+.sidebar {
+  border-right: 1px solid #e5e5e5;
+  padding-right: 20px;
+}
+
+/* Filter Group Container */
+.filterGroup {
+  margin-bottom: 20px;
+}
+
+/* Checkbox Label Styling */
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.checkboxLabel:hover {
+  color: #666666;
+}
+
+/* Custom Checkbox */
+.checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #1a1a1a;
+}
+
+/* Divider Between Sections */
+.divider {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 20px 0;
+}
+
+/* Filter Section Container */
+.filterSection {
+  margin-bottom: 0;
+}
+
+/* Filter Section Header (Collapsible) */
+.filterHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.filterHeader:hover {
+  color: #666666;
+}
+
+/* Filter Title Text */
+.filterTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+/* Filter Dropdown Icon */
+.filterIcon {
+  transition: transform 0.3s ease;
+  color: #666666;
+}
+
+/* Rotate icon when section is open */
+.filterIconOpen {
+  transform: rotate(180deg);
+}
+
+/* Filter Content Container */
+.filterContent {
+  padding: 10px 0 20px 0;
+  animation: slideDown 0.3s ease;
+}
+
+/* Slide down animation for filter content */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Filter Options Container */
+.filterOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* "All" Option Text */
+.allOption {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+  padding: 8px 0;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .filterHeader {
+    padding: 10px 0;
+  }
+
+  .filterContent {
+    padding: 10px 0 15px 0;
+  }
+}

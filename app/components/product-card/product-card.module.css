@@ -1,0 +1,183 @@
+/*
+  Product Card Styles
+
+  Features:
+  - Image container with aspect ratio
+  - Hover effects (scale, shadow)
+  - Wishlist button
+  - Product info section
+  - Responsive sizing
+*/
+
+/* Improved card styling with better spacing and shadow */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 2px;
+  height: 100%;
+}
+
+/* Hover effect - slight lift with shadow */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Image container with better aspect ratio and spacing */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f9f9f9;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Product Image */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.3s ease;
+  padding: 8px;
+  background: #f9f9f9;
+}
+
+/* Image zoom on hover */
+.card:hover .image {
+  transform: scale(1.02);
+}
+
+/* Improved wishlist button styling */
+.wishlistButton {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  color: #999999;
+}
+
+.wishlistButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  border-color: #d0d0d0;
+}
+
+/* Active wishlist state (filled heart) */
+.wishlistActive {
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+/* Improved product content section with better typography */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+/* Product Title */
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+}
+
+/* Sign In Text */
+.signInText {
+  font-size: 12px;
+  color: #999999;
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+/* Sign In Link */
+.signInLink {
+  color: #1a1a1a;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.signInLink:hover {
+  color: #666666;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .imageContainer {
+    margin-bottom: 10px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .wishlistButton {
+    width: 32px;
+    height: 32px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .wishlistButton svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .title {
+    font-size: 12px;
+  }
+
+  .signInText {
+    font-size: 11px;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL MOBILE (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .imageContainer {
+    aspect-ratio: 1 / 1;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    font-size: 11px;
+  }
+
+  .signInText {
+    font-size: 10px;
+  }
+
+  .wishlistButton {
+    width: 28px;
+    height: 28px;
+  }
+}

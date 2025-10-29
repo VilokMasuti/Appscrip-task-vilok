@@ -1,0 +1,67 @@
+/*
+  Product Grid Styles
+
+  Responsive grid layout:
+  - Desktop (filter visible): 3 columns
+  - Desktop (filter hidden): 4 columns
+  - Tablet: 2 columns
+  - Mobile: 2 columns (small) or 1 column (extra small)
+*/
+
+/* Default grid with 3 columns when filter is visible */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* 4 columns when filter is hidden - expands to full width */
+.gridFullWidth {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* ============================================
+   TABLET RESPONSIVE STYLES (1024px and below)
+   ============================================ */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .gridFullWidth {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .gridFullWidth {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL MOBILE (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gridFullWidth {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

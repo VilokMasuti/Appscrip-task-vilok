@@ -1,0 +1,262 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mainHeader {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.headerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Left side - Only image */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Center section - Logo text and navigation */
+.centerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-left: 150px;
+}
+
+.logoText {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #1a1a1a;
+}
+
+.navigation {
+  display: flex;
+  gap: 40px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+  position: relative;
+
+}
+
+.navLink:hover {
+  color: #666666;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1a1a1a;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Right side - Icons */
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #1a1a1a;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconButton:hover {
+  color: #666666;
+}
+
+.languageButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.languageButton:hover {
+  color: #666666;
+}
+
+/* Mobile Menu Button - Hidden on desktop */
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #1a1a1a;
+  transition: color 0.2s ease;
+}
+
+.mobileMenuButton:hover {
+  color: #666666;
+}
+
+
+   /* TABLET RESPONSIVE STYLES (1024px and below) */
+
+@media (max-width: 1024px) {
+  .headerContent {
+    gap: 20px;
+    padding: 15px 20px;
+  }
+
+  .navigation {
+    gap: 25px;
+  }
+
+  .headerActions {
+    gap: 15px;
+  }
+}
+
+
+   /* MOBILE RESPONSIVE STYLES (768px and below)
+/ */
+@media (max-width: 768px) {
+  .headerContent {
+    grid-template-columns: auto 1fr auto;
+    gap: 15px;
+    padding: 12px 20px;
+    align-items: center;
+  }
+
+  /* Show mobile menu button */
+  .mobileMenuButton {
+    display: block;
+    order: 1; /* First item */
+  }
+
+  /* Logo image - hide on mobile */
+  .logo {
+    display: none;
+  }
+
+  /* Center section - adjust for mobile */
+  .centerSection {
+    order: 2; /* Second item */
+    width: 100%;
+    position: relative;
+  }
+
+  /* Hide logo text on mobile */
+  .logoText {
+    display: none;
+  }
+
+  /* Navigation - hidden by default, shows when menu is open */
+  .navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 101;
+  }
+
+  .navigationOpen {
+    max-height: 400px;
+  }
+
+  .navLink {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e5e5;
+    display: block;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .navLink::after {
+    display: none;
+  }
+
+  /* Header actions - icons */
+  .headerActions {
+    order: 3; /* Third item */
+    gap: 12px;
+  }
+
+  /* Hide some icons and language on mobile to save space */
+  .headerActions .iconButton:nth-child(4), /* User account */
+  .headerActions .iconButton:nth-child(5), /* Wishlist */
+  .languageButton {
+    display: none;
+  }
+
+  .iconButton svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/*
+    MOBILE RESPONSIVE STYLES */
+
+@media (max-width: 480px) {
+  .headerContent {
+    padding: 10px 15px;
+    gap: 10px;
+  }
+
+  .headerActions {
+    gap: 8px;
+  }
+
+  .iconButton svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Hide search icon on very small screens */
+  .headerActions .iconButton:nth-child(1) {
+    display: none;
+  }
+}
