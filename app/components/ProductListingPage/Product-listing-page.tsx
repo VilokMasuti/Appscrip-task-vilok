@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 
 import FilterSidebar from '@/app/components/filter-sidebar/filter-sidebar'
 import Footer from '@/app/components/footer/footer'
@@ -39,12 +39,20 @@ interface ProductListingPageProps {
  * - Wishlist functionality
  * - SEO-optimized structure
  */
+const sortOptions = [
+  { value: "recommended", label: "RECOMMENDED" },
+  { value: "newest", label: "NEWEST FIRST" },
+  { value: "popular", label: "POPULAR" },
+  { value: "price-high-low", label: " HIGH TO LOW" },
+  { value: "price-low-high", label: " LOW TO HIGH" }
+];
 export default function ProductListingPage({ products }: ProductListingPageProps) {
   // State for sidebar visibility toggle
   const [isSidebarVisible, setIsSidebarVisible] = useState(true)
 
   // State for sort option
   const [sortOption, setSortOption] = useState("recommended")
+
 
   // State for active filters
   const [selectedFilters, setSelectedFilters] = useState({
@@ -103,6 +111,22 @@ export default function ProductListingPage({ products }: ProductListingPageProps
         return sorted
     }
   }, [products, sortOption])
+  const [openSort, setOpenSort] = useState(false);
+
+
+
+  // Dropdown close on outside click
+  const sortRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handler = (e: MouseEvent): void => {
+      if (sortRef.current && !sortRef.current.contains(e.target as Node)) {
+      setOpenSort(false);
+      }
+    };
+    window.addEventListener('mousedown', handler);
+    return () => window.removeEventListener('mousedown', handler);
+  }, []);
+
 
   return (
     <div className={styles.pageContainer}>
@@ -133,24 +157,42 @@ export default function ProductListingPage({ products }: ProductListingPageProps
             </div>
 
             {/* Sort Dropdown */}
-            <div className={styles.sortContainer}>
-              <select
-                className={styles.sortSelect}
-                value={sortOption}
-                onChange={(e) => handleSortChange(e.target.value)}
-                aria-label="Sort products by"
+         {/* === Custom Sort Dropdown START === */}
+            <div className={styles.sortContainer} ref={sortRef}>
+              <button
+                className={styles.customDropdownBtn}
+                onClick={() => setOpenSort((o) => !o)}
+                type="button"
+                aria-haspopup="listbox"
+                aria-expanded={openSort}
               >
-                <option value="recommended">RECOMMENDED</option>
-                <option value="newest">NEWEST FIRST</option>
-                <option value="popular">POPULAR</option>
-                <option value="price-high-low">PRICE: HIGH TO LOW</option>
-                <option value="price-low-high">PRICE: LOW TO HIGH</option>
-              </select>
+                {sortOptions.find(o => o.value === sortOption)?.label || 'RECOMMENDED'}
+                <svg width="14" height="8" viewBox="0 0 10 6">
+                  <path d="M1 1L5 5L9 1" stroke="#666" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              {openSort && (
+                <div className={styles.customDropdownMenu} role="listbox" tabIndex={-1}>
+                  {sortOptions.map(opt => (
+                    <div
+                      key={opt.value}
+                      className={`${styles.dropdownItem} ${sortOption === opt.value ? styles.active : ""}`}
+                      role="option"
+                      aria-selected={sortOption === opt.value}
+                      onClick={() => { handleSortChange(opt.value); setOpenSort(false); }}
+                      tabIndex={0}
+                    >
+                      {sortOption === opt.value && <span className={styles.check}>✓</span>}
+                      {opt.label}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
           {/* Main Content Grid - Sidebar + Products */}
-        <div
+         <div
   className={`${styles.contentGrid} ${
     !isSidebarVisible ? styles.contentGridFullWidth : ""
   }`}

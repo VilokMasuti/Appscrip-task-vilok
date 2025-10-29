@@ -99,36 +99,71 @@
 .sortContainer {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
+  position: relative;
 }
 
-/* Sort Select Dropdown */
-.sortSelect {
-  padding: 8px 30px 8px 12px;
+/* Custom Dropdown Button Style */
+.customDropdownBtn {
+  background: #fff;
+  font-size: 15px;
+  font-weight: 600px;
+  padding: 14px 18px;
   border: none;
-  background: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
   cursor: pointer;
-  appearance: none;
-  color: #1a1a1a;
-  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s;
+  color: #181818;
 
-  /* Custom dropdown arrow */
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  padding-right: 30px;
+}
+.customDropdownBtn svg {
+  margin-left: 22px;
 }
 
-.sortSelect:hover {
-  color: #666666;
+/* Dropdown Menu */
+.customDropdownMenu {
+  position: absolute;
+  left: 0;
+  top: 110%;
+  min-width: 250px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+  padding: 14px 0;
+  z-index: 20;
+  margin-top: 8px;
+}
+.dropdownItem {
+  padding: 14px 34px 14px 39px;
+  font-size: 19px;
+  font-weight: 500;
+  color: #494949;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.14s, color 0.13s;
+  display: flex;
+  align-items: center;
+}
+.dropdownItem.active {
+  color: #181818;
+ font-weight: 500;
+  background: #fafafa;
+}
+.dropdownItem .check {
+  position: absolute;
+  left: 18px;
+  color: #212121;
+  font-size: 21px;
+}
+.dropdownItem:hover {
+  background: #f4f4f4;
+  color: #0a59cc;
 }
 
-.sortSelect:focus {
-  outline: 2px solid #1a1a1a;
-  outline-offset: 2px;
-}
+/* Main Content Grid - Sidebar + Products */
 
 /* Main content grid - adjusts based on filter visibility */
 .contentGrid {
@@ -155,6 +190,7 @@
   min-height: 500px;
 }
 
+
 /* Visually Hidden Text (for accessibility) */
 .visuallyHidden {
   position: absolute;
@@ -180,10 +216,6 @@
   .contentGrid {
     grid-template-columns: 220px 1fr;
     gap: 30px;
-  }
-
-  .contentGridFullWidth {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -231,10 +263,6 @@
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px 0;
-  }
-
-  .contentGridFullWidth {
-    grid-template-columns: 1fr;
   }
 
   /* Sidebar becomes static on mobile */

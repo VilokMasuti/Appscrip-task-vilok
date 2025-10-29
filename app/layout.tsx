@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   keywords: "fashion, accessories, premium products, customizable fashion, online shopping",
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
+  icons:"/Logo.png"
 }
 export default function RootLayout({
   children,
@@ -29,6 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+              {/* Preconnect to external resources for performance */}
+        <link rel="preconnect" href="https://fakestoreapi.com" />
         {children}
       </body>
     </html>

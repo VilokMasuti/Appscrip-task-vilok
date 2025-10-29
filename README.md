@@ -1,36 +1,265 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+A fully responsive, SEO-optimized e-commerce product listing page built with Next.js 16, featuring Server-Side Rendering (SSR) and integration with the Fake Store API.
 
-```bash
+##  Features
+
+- **Server-Side Rendering (SSR)** - Built with Next.js 16 App Router for optimal performance and SEO
+- **Responsive Design** - Fully responsive for mobile, tablet, and desktop with mobile-first approach
+- **SEO Optimized** - Comprehensive SEO implementation including:
+  - Meta tags (title, description, keywords)
+  - Semantic HTML with proper H1/H2 tags
+  - JSON-LD Schema markup for rich snippets
+  - SEO-friendly image names and alt text
+  - Proper heading hierarchy
+- **Real API Integration** - Fetches products from Fake Store API with caching
+- **Modern UI/UX** - Clean, professional design matching the provided mockup exactly
+- **Vanilla CSS** - No Bootstrap or Tailwind CSS (pure CSS Modules as per requirements)
+- **Accessibility** - WCAG compliant with proper ARIA labels, semantic HTML, and keyboard navigation
+- **Performance** - Optimized images with lazy loading, efficient rendering, and minimal DOM size
+- **Best Practices** - Clean code structure, proper naming conventions, comprehensive comments
+
+## Technical Requirements Met
+
+✅ HTML & CSS implementation without Bootstrap/Tailwind
+✅ React.js with Next.js 16 framework
+✅ Server-Side Rendering (SSR) for SEO
+✅ Responsive for mobile, tablet & desktop
+✅ Clean code structure with proper naming conventions
+✅ Minimal pre-built packages (only Next.js essentials)
+✅ SEO settings (title, description, H1/H2, schema, alt text)
+✅ Integration with Fake Store API
+✅ Deployed on  vercel
+✅ Public GitHub repository
+
+##  Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS Modules (Vanilla CSS)
+- **API**: Fake Store API (https://fakestoreapi.com)
+- **Image Optimization**: Next.js Image component
+- **Deployment**: Netlify
+
+##  Installation & Setup
+
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
+
+### Step 1: Clone the Repository
+
+\`\`\`bash
+git clone https://github.com/yourusername/Appscrip-task-yourname.git
+cd Appscrip-task-yourname
+\`\`\`
+
+### Step 2: Install Dependencies
+
+\`\`\`bash
+npm install
+\`\`\`
+
+### Step 3: Run Development Server
+
+\`\`\`bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Step 4: Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+\`\`\`bash
+npm run build
+npm start
+\`\`\`
 
-## Learn More
+##  Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+\`\`\`
+Appscrip-task-yourname/
+├── app/
+│   ├── page.tsx                    # Main page with SSR data fetching
+│   ├── layout.tsx                  # Root layout with metadata
+│   └── globals.css                 # Global styles and CSS variables
+│
+├── components/
+│   ├── header/
+│   │   ├── header.tsx              # Header component with navigation
+│   │   └── header.module.css       # Header styles
+│   │
+│   ├── footer/
+│   │   ├── footer.tsx              # Footer with newsletter and links
+│   │   └── footer.module.css       # Footer styles
+│   │
+│   ├── product-listing-page/
+│   │   ├── product-listing-page.tsx    # Main PLP container
+│   │   └── product-listing-page.module.css
+│   │
+│   ├── filter-sidebar/
+│   │   ├── filter-sidebar.tsx      # Filter sidebar with collapsible sections
+│   │   └── filter-sidebar.module.css
+│   │
+│   ├── product-grid/
+│   │   ├── product-grid.tsx        # Product grid layout
+│   │   └── product-grid.module.css
+│   │
+│   └── product-card/
+│       ├── product-card.tsx        # Individual product card
+│       └── product-card.module.css
+│
+├── public/                         # Static assets
+├── next.config.mjs                # Next.js configuration
+├── tsconfig.json                  # TypeScript configuration
+├── package.json                   # Dependencies and scripts
+└── README.md                       # This file
+\`\`\`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##  Features Implemented
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Header Component
+- Sticky positioning with shadow
+- Responsive navigation menu with smooth animations
+- Mobile hamburger menu with dropdown
+- Search, wishlist, cart, and user account icons
+- Language selector dropdown
+- Top announcement bar (dark background)
+- Hover effects and transitions
 
-## Deploy on Vercel
+### Product Listing Page
+- Server-side data fetching from Fake Store API
+- Responsive product grid (3 cols desktop, 2 cols tablet, 1-2 cols mobile)
+- Wishlist functionality with state management
+- Sort options:
+  - Recommended (default)
+  - Newest First
+  - Popular (by rating count)
+  - Price: High to Low
+  - Price: Low to High
+- Product count display
+- Show/Hide filter toggle for mobile
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Filter Sidebar
+- Collapsible filter sections with smooth animations
+- Filter categories:
+  - Customizable (checkbox)
+  - Ideal For (Men, Women, Baby & Kids)
+  - Occasion
+  - Work
+  - Fabric
+  - Segment
+  - Suitable For
+  - Raw Materials
+  - Pattern
+- Responsive behavior (collapses on mobile)
+- Smooth expand/collapse animations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Product Card
+- Product image with lazy loading
+- Wishlist toggle button with heart icon
+- Product title (truncated to 2 lines)
+- Sign in prompt for pricing
+- Hover effects (lift and image zoom)
+- SEO-friendly alt text
+
+### Footer Component
+- Newsletter subscription form
+- Contact information (phone and email)
+- Currency selector
+- Company links (About, Stories, Artisans, etc.)
+- Quick links (Orders, Shipping, FAQs, etc.)
+- Social media links (Instagram, LinkedIn)
+- Payment method icons
+- Copyright notice
+
+##  SEO Implementation Details
+
+### Meta Tags
+- **Title**: Descriptive and keyword-rich (60 characters)
+- **Description**: Compelling description for search results (160 characters)
+- **Keywords**: Relevant keywords for the product category
+
+
+### Semantic HTML
+- Proper use of `<header>`, `<main>`, `<footer>`, `<nav>`, `<article>`, `<section>`
+- Correct heading hierarchy (H1 for main title, H2 for sections)
+- Semantic form elements with proper labels
+
+### JSON-LD Schema
+- CollectionPage schema for the product listing
+- ItemList schema with product items
+- Product schema with name, image, description, and price
+- Helps search engines understand page structure
+
+### Image Optimization
+- SEO-friendly image names (lowercase, hyphens)
+- Descriptive alt text for all images
+- Next.js Image component for automatic optimization
+- Lazy loading for performance
+
+##  Responsive Design Breakpoints
+
+The application uses a mobile-first approach with the following breakpoints:
+
+- **Mobile**: Below 480px (single column grid)
+- **Mobile+**: 480px - 768px (2 column grid)
+- **Tablet**: 768px - 1024px (2 column grid, adjusted spacing)
+- **Desktop**: 1024px and above (3 column grid)
+
+All components adapt smoothly to different screen sizes with optimized spacing and typography.
+
+##  Code Structure & Best Practices
+
+### Component Organization
+- Each component has its own folder with `.tsx` and `.module.css` files
+- Clear separation of concerns (logic, styling, markup)
+- Reusable components (FilterSection, ProductCard)
+- Props interfaces for type safety
+
+### CSS Modules
+- Scoped styling to prevent conflicts
+- CSS variables for consistent theming
+- Mobile-first media queries
+- Smooth transitions and animations
+- Accessibility-focused focus states
+
+### TypeScript
+- Strict type checking enabled
+- Interface definitions for all props
+- Type-safe API responses
+
+### Comments & Documentation
+- Comprehensive comments in all files
+- Clear explanations of complex logic
+- Section headers for easy navigation
+- Inline comments for non-obvious code
+
+
+
+
+## 🔧 Development Tips
+
+### Adding New Products
+Products are fetched from Fake Store API. To use real data:
+1. Replace the API endpoint in `app/page.tsx`
+2. Update the Product interface if needed
+3. Adjust product card display accordingly
+
+### Customizing Filters
+To add new filter categories:
+1. Add new filter state in `product-listing-page.tsx`
+2. Create new FilterSection in `filter-sidebar.tsx`
+3. Add corresponding styling in CSS modules
+
+### Modifying Styles
+
+- Component styles: `components/[component]/[component].module.css`
+- CSS variables for theming in `globals.css`
+
+
+
+### API Not Loading
+- Check internet connection
+- Verify Fake Store API is accessible: https://fakestoreapi.com/products
+- Check browser console for errors

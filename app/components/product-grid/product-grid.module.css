@@ -2,22 +2,14 @@
   Product Grid Styles
 
   Responsive grid layout:
-  - Desktop (filter visible): 3 columns
-  - Desktop (filter hidden): 4 columns
+  - Desktop: 3 columns
   - Tablet: 2 columns
   - Mobile: 2 columns (small) or 1 column (extra small)
 */
 
-/* Default grid with 3 columns when filter is visible */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-/* 4 columns when filter is hidden - expands to full width */
-.gridFullWidth {
-  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 
@@ -27,11 +19,6 @@
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-
-  .gridFullWidth {
-    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
   }
 }
@@ -44,11 +31,6 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
-
-  .gridFullWidth {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
 }
 
 /* ============================================
@@ -57,11 +39,5 @@
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .gridFullWidth {
-    grid-template-columns: 1fr;
-    gap: 12px;
   }
 }
