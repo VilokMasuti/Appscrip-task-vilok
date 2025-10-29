@@ -77,44 +77,51 @@ npm start
 
 ##  Project Structure
 
-\`\`\`
-Appscrip-task-yourname/
-├── app/
-│   ├── page.tsx                    # Main page with SSR data fetching
-│   ├── layout.tsx                  # Root layout with metadata
-│   └── globals.css                 # Global styles and CSS variables
-│
-├── components/
-│   ├── header/
-│   │   ├── header.tsx              # Header component with navigation
-│   │   └── header.module.css       # Header styles
-│   │
-│   ├── footer/
-│   │   ├── footer.tsx              # Footer with newsletter and links
-│   │   └── footer.module.css       # Footer styles
-│   │
-│   ├── product-listing-page/
-│   │   ├── product-listing-page.tsx    # Main PLP container
-│   │   └── product-listing-page.module.css
-│   │
-│   ├── filter-sidebar/
-│   │   ├── filter-sidebar.tsx      # Filter sidebar with collapsible sections
-│   │   └── filter-sidebar.module.css
-│   │
-│   ├── product-grid/
-│   │   ├── product-grid.tsx        # Product grid layout
-│   │   └── product-grid.module.css
-│   │
-│   └── product-card/
-│       ├── product-card.tsx        # Individual product card
-│       └── product-card.module.css
-│
-├── public/                         # Static assets
-├── next.config.mjs                # Next.js configuration
-├── tsconfig.json                  # TypeScript configuration
-├── package.json                   # Dependencies and scripts
-└── README.md                       # This file
-\`\`\`
+```
+├── 📁 actions
+│   └── 📄 getProducts.ts
+├── 📁 app
+│   ├── 📁 components
+│   │   ├── 📁 ProductListingPage
+│   │   │   ├── 📄 Product-listing-page.tsx
+│   │   │   └── 🎨 productlistingpage.module.css
+│   │   ├── 📁 filter-sidebar
+│   │   │   ├── 🎨 filter-sidebar.module.css
+│   │   │   └── 📄 filter-sidebar.tsx
+│   │   ├── 📁 footer
+│   │   │   ├── 🎨 footer.module.css
+│   │   │   └── 📄 footer.tsx
+│   │   ├── 📁 header
+│   │   │   ├── 🎨 header.module.css
+│   │   │   └── 📄 header.tsx
+│   │   ├── 📁 product-card
+│   │   │   ├── 🎨 product-card.module.css
+│   │   │   └── 📄 product-card.tsx
+│   │   └── 📁 product-grid
+│   │       ├── 🎨 product-grid.module.css
+│   │       └── 📄 product-grid.tsx
+│   ├── 📄 favicon.ico
+│   ├── 🎨 globals.css
+│   ├── 📄 layout.tsx
+│   ├── 🎨 page.module.css
+│   └── 📄 page.tsx
+├── 📁 public
+│   ├── 🖼️ Logo.png
+│   ├── 🖼️ file.svg
+│   ├── 🖼️ globe.svg
+│   ├── 🖼️ next.svg
+│   ├── 🖼️ vercel.svg
+│   └── 🖼️ window.svg
+├── ⚙️ .gitignore
+├── 📝 README.md
+├── ⚙️ biome.json
+├── 📄 next.config.ts
+├── ⚙️ package-lock.json
+├── ⚙️ package.json
+└── ⚙️ tsconfig.json
+```
+
+---
 
 ##  Features Implemented
 
