@@ -26,7 +26,7 @@ export default function Header() {
           {/* Left side - Only image (hidden on mobile) */}
           <div className={styles.logo}>
             <Image
-              src="/logo.png"
+              src="/Logo.png"
               alt="Logo"
               width={40}
               height={40}
